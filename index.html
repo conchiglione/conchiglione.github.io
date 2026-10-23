@@ -3,10 +3,233 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Futotta Usagi</title>
+    <title>Futotta Usagi | AI & Tech Lab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0d0a1a;
+            --card-bg: #16122b;
+            --primary-neon: #ff007f;
+            --secondary-neon: #00f0ff;
+            --accent-yellow: #ffb703;
+            --text-color: #e0e0e0;
+            --text-dim: #9d8ec4;
+            --border-color: #3b2d54;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Space Grotesk', sans-serif;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(255, 0, 127, 0.15), transparent 70%),
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 100% 100%, 30px 30px, 30px 30px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 3rem 1rem;
+            border-bottom: 2px solid var(--primary-neon);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .retro-badge {
+            font-family: 'VT323', monospace;
+            color: var(--secondary-neon);
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255, 0, 127, 0.5);
+        }
+
+        .subtitle {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.8rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-neon), var(--secondary-neon));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary-neon);
+            box-shadow: 0 10px 20px rgba(0, 240, 255, 0.15);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-icon {
+            font-family: 'VT323', monospace;
+            font-size: 1.8rem;
+            color: var(--accent-yellow);
+            margin-bottom: 1rem;
+        }
+
+        .card h2 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        .card p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        .card-link {
+            font-family: 'VT323', monospace;
+            color: var(--secondary-neon);
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            display: inline-block;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-dim);
+            font-family: 'VT323', monospace;
+            font-size: 1.1rem;
+        }
+    </style>
 </head>
 <body>
-    <h1>Benvenuto sul mio sito!</h1>
-    <p>Sito web di futottausagi ospitato su GitHub Pages.</p>
+
+    <div class="container">
+        <header>
+            <div class="retro-badge">[ SYSTEM v1.0 // AI EXPERIMENTS ]</div>
+            <h1>太った兎 // Futotta Usagi</h1>
+            <p class="subtitle">Laboratorio creativo, software, fotografia ed esplorazioni AI</p>
+        </header>
+
+        <main class="grid">
+            <!-- Categoria: Fotografia -->
+            <a href="progetti/fotografia/" class="card">
+                <div>
+                    <div class="card-icon">&gt; PHOTO_LAB</div>
+                    <h2>Fotografia</h2>
+                    <p>Esperimenti visivi, post-produzione e prompt engineering per generazione immagini AI.</p>
+                </div>
+                <span class="card-link">ESPLORA -&gt;</span>
+            </a>
+
+            <!-- Categoria: Gallery Fotografiche -->
+            <a href="progetti/galleria-foto/" class="card">
+                <div>
+                    <div class="card-icon">&gt; GALLERIES</div>
+                    <h2>Gallery Fotografiche</h2>
+                    <p>Raccolte di scatti, portfolio fotografici e mostre virtuali tematiche.</p>
+                </div>
+                <span class="card-link">ESPLORA -&gt;</span>
+            </a>
+
+            <!-- Categoria: Musica -->
+            <a href="progetti/musica/" class="card">
+                <div>
+                    <div class="card-icon">&gt; AUDIO_WAVE</div>
+                    <h2>Musica</h2>
+                    <p>Composizioni audio, synth retro, esperimenti sonori e traccie generate con IA.</p>
+                </div>
+                <span class="card-link">ESPLORA -&gt;</span>
+            </a>
+
+            <!-- Categoria: Giapponese -->
+            <a href="progetti/giapponese/" class="card">
+                <div>
+                    <div class="card-icon">&gt; NIHONGO_STUDY</div>
+                    <h2>Giapponese</h2>
+                    <p>Appunti grammaticali, analisi kanji, risorse di studio e strumenti linguistici.</p>
+                </div>
+                <span class="card-link">ESPLORA -&gt;</span>
+            </a>
+
+            <!-- Categoria: Camino -->
+            <a href="progetti/camino/" class="card">
+                <div>
+                    <div class="card-icon">&gt; CAMINO_JOURNAL</div>
+                    <h2>Camino</h2>
+                    <p>Diario di viaggio, tappe, mappe e storie lungo i percorsi del Camino.</p>
+                </div>
+                <span class="card-link">ESPLORA -&gt;</span>
+            </a>
+
+            <!-- Categoria: Software -->
+            <a href="progetti/software/" class="card">
+                <div>
+                    <div class="card-icon">&gt; DEV_ROOM</div>
+                    <h2>Software & AI</h2>
+                    <p>Applicazioni web, script di automazione, bot e tool sviluppati con l'ausilio di IA.</p>
+                </div>
+                <span class="card-link">ESPLORA -&gt;</span>
+            </a>
+        </main>
+
+        <footer>
+            &copy; 2026 Futotta Usagi • Hosted on GitHub Pages
+        </footer>
+    </div>
+
 </body>
 </html>
