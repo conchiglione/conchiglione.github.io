@@ -125,8 +125,16 @@ footer { text-align: center; margin-top: 4rem; padding-top: 1.8rem; border-top: 
 [data-sfondo="confetto"], [data-sfondo="pesca"], [data-sfondo="lavanda"], [data-sfondo="menta"] {
   --glow: 0; --glow-h1: 0; --grid: transparent; }
 
-/* ---------- Pallini per scegliere lo sfondo ---------- */
-.sfondi { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: .6rem;
-  margin-bottom: 1rem; color: var(--text-dim); font-size: .95rem; }
-.sfondi button { width: 2.5rem; height: 2.5rem; border-radius: 50%; border: 2px solid var(--border); cursor: pointer; }
+/* ---------- Barra sottile in alto per scegliere lo sfondo ---------- */
+.sfondi { position: fixed; top: 0; left: 0; right: 0; z-index: 10; display: flex; align-items: center; justify-content: center;
+  gap: .5rem; padding: .45rem .6rem; background: var(--card); border-bottom: 1px solid var(--border);
+  color: var(--text-dim); font-size: .9rem; }
+.sfondi button { position: relative; width: 2.3rem; height: 2.3rem; padding: 0; border-radius: 50%;
+  border: 2px solid var(--border); cursor: pointer; transition: transform .15s ease; }
+.sfondi button:hover { transform: scale(1.12); }
 .sfondi button[aria-pressed="true"], .sfondi button:focus-visible { outline: 3px solid var(--text); outline-offset: 2px; }
+.sfondi button[aria-pressed="true"]::after { content: "\2713"; position: absolute; inset: 0; display: grid; place-items: center;
+  font-size: 1.1rem; font-weight: 700; color: #fff; text-shadow: 0 0 3px #000, 0 0 3px #000; }
+body.con-barra { padding-top: 4.2rem; } /* spazio per la barra fissa */
+@media (max-width: 480px) { .sfondi span { display: none; } }
+@media (prefers-reduced-motion: reduce) { .sfondi button { transition: none; } .sfondi button:hover { transform: none; } }
