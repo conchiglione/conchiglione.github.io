@@ -12,7 +12,7 @@
   <script>
 /* Gestisce lo sfondo scelto e lo ricorda (anche nelle altre pagine che includono questo file). */
 (function () {
-  var TEMI = ["neon", "80s", "confetto", "pesca", "lavanda", "menta", "notte"];
+  var TEMI = ["neon", "80s", "rosanero", "pescanero", "notte", "confetto", "lavanda"];
   var R = document.documentElement, scelto = "neon";
   try { var s = localStorage.getItem("sfondo"); if (TEMI.indexOf(s) > -1) scelto = s; } catch (e) {}
   R.setAttribute("data-sfondo", scelto);
@@ -43,11 +43,11 @@
       <span>Sfondo</span>
       <button type="button" data-scegli="neon" title="Neon colorato" aria-label="Neon colorato" aria-pressed="false" style="background:linear-gradient(135deg,#0d0a1a 50%,#00f0ff 50%)"></button>
       <button type="button" data-scegli="80s" title="Anni 80 originale" aria-label="Anni 80 originale" aria-pressed="false" style="background:linear-gradient(135deg,#0d0a1a 50%,#ff007f 50%)"></button>
-      <button type="button" data-scegli="confetto" title="Rosa confetto" aria-label="Rosa confetto" aria-pressed="false" style="background:linear-gradient(180deg,#fff3f8,#ffb8d4)"></button>
-      <button type="button" data-scegli="pesca" title="Pesca" aria-label="Pesca" aria-pressed="false" style="background:linear-gradient(180deg,#fff6ee,#ffbf9e)"></button>
-      <button type="button" data-scegli="lavanda" title="Lavanda" aria-label="Lavanda" aria-pressed="false" style="background:linear-gradient(180deg,#f6f2ff,#c6b3ff)"></button>
-      <button type="button" data-scegli="menta" title="Menta" aria-label="Menta" aria-pressed="false" style="background:linear-gradient(180deg,#effff7,#9fe6c4)"></button>
+      <button type="button" data-scegli="rosanero" title="Rosa e nero a quadretti" aria-label="Rosa e nero a quadretti" aria-pressed="false" style="background:linear-gradient(135deg,#000 50%,#ff5fa2 50%)"></button>
+      <button type="button" data-scegli="pescanero" title="Pesca e nero a quadretti" aria-label="Pesca e nero a quadretti" aria-pressed="false" style="background:linear-gradient(135deg,#000 50%,#ffb38a 50%)"></button>
       <button type="button" data-scegli="notte" title="Notte blu" aria-label="Notte blu" aria-pressed="false" style="background:linear-gradient(135deg,#07111f 50%,#4da3ff 50%)"></button>
+      <button type="button" data-scegli="confetto" title="Rosa confetto (chiaro)" aria-label="Rosa confetto (chiaro)" aria-pressed="false" style="background:linear-gradient(180deg,#fff3f8,#ffb8d4)"></button>
+      <button type="button" data-scegli="lavanda" title="Violetto (chiaro)" aria-label="Violetto (chiaro)" aria-pressed="false" style="background:linear-gradient(180deg,#f6f2ff,#c6b3ff)"></button>
     </div>
 
     <header>
