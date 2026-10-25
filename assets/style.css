@@ -109,20 +109,24 @@ footer { text-align: center; margin-top: 4rem; padding-top: 1.8rem; border-top: 
 [data-sfondo="notte"] { --bg: #07111f; --card: #0d1b30; --text: #e6eefc; --text-dim: #a3b6d6; --border: #243a5c;
   --grid: rgba(120,170,255,.05); --accent: #4da3ff; --accent-rgb: 77, 163, 255; --glow: .2; }
 
+/* Nero a quadretti: sfondo nero, quadretti e riquadri del colore del tema */
+[data-sfondo="rosanero"] { /* rosa e nero */
+  --bg: #000; --card: #12080d; --text: #f6e9ef; --text-dim: #f0b3cd; --border: #5c2540;
+  --grid: rgba(255, 95, 162, .2); --accent: #ff5fa2; --accent-rgb: 255, 95, 162; --glow: .12; }
+[data-sfondo="pescanero"] { /* pesca e nero */
+  --bg: #000; --card: #140d09; --text: #fbefe6; --text-dim: #f0c4a6; --border: #5e3b27;
+  --grid: rgba(255, 179, 138, .18); --accent: #ffb38a; --accent-rgb: 255, 179, 138; --glow: .12; }
+[data-sfondo="rosanero"] .card { --accent: #ff5fa2; --accent-rgb: 255, 95, 162; }
+[data-sfondo="pescanero"] .card { --accent: #ffb38a; --accent-rgb: 255, 179, 138; }
+
 /* Temi chiari: sfumature pastello con testo scuro */
 [data-sfondo="confetto"] { /* rosa confetto */
   --bg: #ffc9de; --wash: linear-gradient(180deg, #fff3f8 0%, #ffd6e7 55%, #ffb8d4 100%);
   --card: #fffafc; --text: #3b1029; --text-dim: #7a3558; --border: #f0b3cd; --ink: #a3175e; }
-[data-sfondo="pesca"] { /* armonia calda del rosa */
-  --bg: #ffd9c2; --wash: linear-gradient(180deg, #fff6ee 0%, #ffd9c2 55%, #ffbf9e 100%);
-  --card: #fffaf6; --text: #3a1708; --text-dim: #7a3a1c; --border: #f0c4a6; --ink: #8f3507; }
 [data-sfondo="lavanda"] { /* armonia fredda */
   --bg: #ddd0ff; --wash: linear-gradient(180deg, #f6f2ff 0%, #ddd0ff 55%, #c6b3ff 100%);
   --card: #fbf9ff; --text: #1f1245; --text-dim: #4f3d8a; --border: #c9baf2; --ink: #4b2bb0; }
-[data-sfondo="menta"] { /* contrasto (complementare) del rosa */
-  --bg: #c4f3dc; --wash: linear-gradient(180deg, #effff7 0%, #c4f3dc 55%, #9fe6c4 100%);
-  --card: #f8fffb; --text: #0c2b1e; --text-dim: #2f6b52; --border: #a8dcc3; --ink: #095c3b; }
-[data-sfondo="confetto"], [data-sfondo="pesca"], [data-sfondo="lavanda"], [data-sfondo="menta"] {
+[data-sfondo="confetto"], [data-sfondo="lavanda"] {
   --glow: 0; --glow-h1: 0; --grid: transparent; }
 
 /* ---------- Barra sottile in alto per scegliere lo sfondo ---------- */
