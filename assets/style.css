@@ -11,6 +11,9 @@
   --border: #3b2d54;
   --accent: #00f0ff;         /* colore di default (se la pagina non ha tema) */
   --accent-rgb: 0, 240, 255; /* stesso colore in RGB, serve per i bagliori */
+  --glow: .14;               /* intensita' del bagliore in alto */
+  --grid: rgba(255,255,255,.02); /* colore della griglia di sfondo */
+  --wash: linear-gradient(transparent, transparent); /* sfumatura piena (usata dai temi chiari) */
 }
 
 /* ---------- TEMI: un colore per argomento ----------
@@ -26,28 +29,31 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  background: var(--bg);
+  background-color: var(--bg);
   color: var(--text);
+  min-height: 100vh;
   font-family: 'Space Grotesk', system-ui, sans-serif;
   line-height: 1.65;
   padding: 2rem 1rem;
   background-image:
-    radial-gradient(circle at 50% 0%, rgba(var(--accent-rgb), .14), transparent 65%),
-    linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
-  background-size: 100% 100%, 30px 30px, 30px 30px;
+    var(--wash),
+    radial-gradient(circle at 50% 0%, rgba(var(--accent-rgb), var(--glow)), transparent 65%),
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 30px 30px, 30px 30px;
+  background-attachment: fixed, scroll, scroll, scroll;
 }
 
 .container { max-width: 1000px; margin: 0 auto; }
-a { color: var(--accent); }
-a:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+a { color: var(--ink, var(--accent)); }
+a:focus-visible { outline: 3px solid var(--ink, var(--accent)); outline-offset: 4px; }
 
 .retro { font-family: 'VT323', monospace; letter-spacing: 1px; }
 
 /* ---------- Header ---------- */
 header { text-align: center; padding: 2.5rem 1rem; margin-bottom: 2.5rem; border-bottom: 2px solid var(--accent); }
-.badge { font-family: 'VT323', monospace; font-size: 1.4rem; color: var(--accent); letter-spacing: 2px; }
-h1 { font-size: clamp(2rem, 6vw, 3.2rem); line-height: 1.15; margin: .4rem 0; text-shadow: 0 0 14px rgba(var(--accent-rgb), .45); }
+.badge { font-family: 'VT323', monospace; font-size: 1.4rem; color: var(--ink, var(--accent)); letter-spacing: 2px; }
+h1 { font-size: clamp(2rem, 6vw, 3.2rem); line-height: 1.15; margin: .4rem 0; text-shadow: 0 0 14px rgba(var(--accent-rgb), var(--glow-h1, .45)); }
 .subtitle { color: var(--text-dim); font-size: 1.1rem; max-width: 60ch; margin: .5rem auto 0; }
 
 /* ---------- Home: griglia di card ---------- */
@@ -65,10 +71,10 @@ h1 { font-size: clamp(2rem, 6vw, 3.2rem); line-height: 1.15; margin: .4rem 0; te
   box-shadow: 0 10px 24px rgba(var(--accent-rgb), .2);
   outline: none;
 }
-.card-tag { font-family: 'VT323', monospace; font-size: 1.5rem; color: var(--accent); margin-bottom: .6rem; }
+.card-tag { font-family: 'VT323', monospace; font-size: 1.5rem; color: var(--ink, var(--accent)); margin-bottom: .6rem; }
 .card h2 { font-size: 1.35rem; margin-bottom: .4rem; }
 .card p { color: var(--text-dim); font-size: .98rem; flex-grow: 1; }
-.card-link { font-family: 'VT323', monospace; font-size: 1.3rem; color: var(--accent); margin-top: 1.2rem; }
+.card-link { font-family: 'VT323', monospace; font-size: 1.3rem; color: var(--ink, var(--accent)); margin-top: 1.2rem; }
 
 /* ---------- Pagine argomento ---------- */
 .crumb { font-family: 'VT323', monospace; font-size: 1.3rem; margin-bottom: 1rem; }
@@ -84,3 +90,43 @@ footer { text-align: center; margin-top: 4rem; padding-top: 1.8rem; border-top: 
   color: var(--text-dim); font-family: 'VT323', monospace; font-size: 1.2rem; }
 
 @media (prefers-reduced-motion: reduce) { .card { transition: none; } .card:hover { transform: none; } }
+
+/* =========================================================
+   SFONDI - scelti con i pallini in home (assets/sfondo.js)
+   Per cambiare un tema: modifica i colori qui sotto.
+   --bg/--wash = sfondo | --card = riquadri | --text/--text-dim = testi
+   --ink = colore dei testi-accento (solo temi chiari)
+   ========================================================= */
+
+/* "neon" = sfondo di default, non serve nulla */
+
+/* Anni 80 originale: bagliore magenta, riquadri uniformi ciano/giallo */
+[data-sfondo="80s"] { --accent: #ff007f; --accent-rgb: 255, 0, 127; --glow: .15; }
+[data-sfondo="80s"] .card { --accent: #00f0ff; --accent-rgb: 0, 240, 255; border-left-width: 1px; }
+[data-sfondo="80s"] .card-tag { color: #ffb703; }
+
+/* Notte blu (contrasto scuro) */
+[data-sfondo="notte"] { --bg: #07111f; --card: #0d1b30; --text: #e6eefc; --text-dim: #a3b6d6; --border: #243a5c;
+  --grid: rgba(120,170,255,.05); --accent: #4da3ff; --accent-rgb: 77, 163, 255; --glow: .2; }
+
+/* Temi chiari: sfumature pastello con testo scuro */
+[data-sfondo="confetto"] { /* rosa confetto */
+  --bg: #ffc9de; --wash: linear-gradient(180deg, #fff3f8 0%, #ffd6e7 55%, #ffb8d4 100%);
+  --card: #fffafc; --text: #3b1029; --text-dim: #7a3558; --border: #f0b3cd; --ink: #a3175e; }
+[data-sfondo="pesca"] { /* armonia calda del rosa */
+  --bg: #ffd9c2; --wash: linear-gradient(180deg, #fff6ee 0%, #ffd9c2 55%, #ffbf9e 100%);
+  --card: #fffaf6; --text: #3a1708; --text-dim: #7a3a1c; --border: #f0c4a6; --ink: #8f3507; }
+[data-sfondo="lavanda"] { /* armonia fredda */
+  --bg: #ddd0ff; --wash: linear-gradient(180deg, #f6f2ff 0%, #ddd0ff 55%, #c6b3ff 100%);
+  --card: #fbf9ff; --text: #1f1245; --text-dim: #4f3d8a; --border: #c9baf2; --ink: #4b2bb0; }
+[data-sfondo="menta"] { /* contrasto (complementare) del rosa */
+  --bg: #c4f3dc; --wash: linear-gradient(180deg, #effff7 0%, #c4f3dc 55%, #9fe6c4 100%);
+  --card: #f8fffb; --text: #0c2b1e; --text-dim: #2f6b52; --border: #a8dcc3; --ink: #095c3b; }
+[data-sfondo="confetto"], [data-sfondo="pesca"], [data-sfondo="lavanda"], [data-sfondo="menta"] {
+  --glow: 0; --glow-h1: 0; --grid: transparent; }
+
+/* ---------- Pallini per scegliere lo sfondo ---------- */
+.sfondi { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: .6rem;
+  margin-bottom: 1rem; color: var(--text-dim); font-size: .95rem; }
+.sfondi button { width: 2.5rem; height: 2.5rem; border-radius: 50%; border: 2px solid var(--border); cursor: pointer; }
+.sfondi button[aria-pressed="true"], .sfondi button:focus-visible { outline: 3px solid var(--text); outline-offset: 2px; }
