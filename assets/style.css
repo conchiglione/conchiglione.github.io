@@ -1,0 +1,86 @@
+/* =========================================================
+   CONCHIGLIONE - STILE CONDIVISO (home + tutte le pagine)
+   Per cambiare un colore: modifica SOLO la sezione "TEMI".
+   ========================================================= */
+
+:root {
+  --bg: #0d0a1a;
+  --card: #16122b;
+  --text: #ece8f5;
+  --text-dim: #b3a8d1;       /* contrasto >= 7:1 su sfondo scuro */
+  --border: #3b2d54;
+  --accent: #00f0ff;         /* colore di default (se la pagina non ha tema) */
+  --accent-rgb: 0, 240, 255; /* stesso colore in RGB, serve per i bagliori */
+}
+
+/* ---------- TEMI: un colore per argomento ----------
+   Uso: <body class="tema-fotografia"> oppure <a class="card tema-musica">
+   Per un nuovo colore cambia i due valori (hex + rgb).            */
+.tema-fotografia { --accent: #ff5fa2; --accent-rgb: 255, 95, 162; }  /* rosa: emozione, creativita' */
+.tema-gallery    { --accent: #ffb703; --accent-rgb: 255, 183, 3; }   /* ambra: calore, esposizione */
+.tema-musica     { --accent: #a98bff; --accent-rgb: 169, 139, 255; } /* viola: immaginazione, suono */
+.tema-giapponese { --accent: #ff5a4d; --accent-rgb: 255, 90, 77; }   /* vermiglio: Giappone, energia */
+.tema-camino     { --accent: #5fe08d; --accent-rgb: 95, 224, 141; }  /* verde: natura, cammino */
+.tema-software   { --accent: #2fd8ff; --accent-rgb: 47, 216, 255; }  /* ciano: tecnologia, logica */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  line-height: 1.65;
+  padding: 2rem 1rem;
+  background-image:
+    radial-gradient(circle at 50% 0%, rgba(var(--accent-rgb), .14), transparent 65%),
+    linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
+  background-size: 100% 100%, 30px 30px, 30px 30px;
+}
+
+.container { max-width: 1000px; margin: 0 auto; }
+a { color: var(--accent); }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+
+.retro { font-family: 'VT323', monospace; letter-spacing: 1px; }
+
+/* ---------- Header ---------- */
+header { text-align: center; padding: 2.5rem 1rem; margin-bottom: 2.5rem; border-bottom: 2px solid var(--accent); }
+.badge { font-family: 'VT323', monospace; font-size: 1.4rem; color: var(--accent); letter-spacing: 2px; }
+h1 { font-size: clamp(2rem, 6vw, 3.2rem); line-height: 1.15; margin: .4rem 0; text-shadow: 0 0 14px rgba(var(--accent-rgb), .45); }
+.subtitle { color: var(--text-dim); font-size: 1.1rem; max-width: 60ch; margin: .5rem auto 0; }
+
+/* ---------- Home: griglia di card ---------- */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.4rem; }
+
+.card {
+  display: flex; flex-direction: column; justify-content: space-between;
+  background: var(--card); color: inherit; text-decoration: none;
+  border: 1px solid var(--border); border-left: 6px solid var(--accent);
+  border-radius: 8px; padding: 1.6rem;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.card:hover, .card:focus-visible {
+  transform: translateY(-4px); border-color: var(--accent);
+  box-shadow: 0 10px 24px rgba(var(--accent-rgb), .2);
+  outline: none;
+}
+.card-tag { font-family: 'VT323', monospace; font-size: 1.5rem; color: var(--accent); margin-bottom: .6rem; }
+.card h2 { font-size: 1.35rem; margin-bottom: .4rem; }
+.card p { color: var(--text-dim); font-size: .98rem; flex-grow: 1; }
+.card-link { font-family: 'VT323', monospace; font-size: 1.3rem; color: var(--accent); margin-top: 1.2rem; }
+
+/* ---------- Pagine argomento ---------- */
+.crumb { font-family: 'VT323', monospace; font-size: 1.3rem; margin-bottom: 1rem; }
+.crumb a { text-decoration: none; }
+.crumb a:hover { text-decoration: underline; }
+
+.intro { max-width: 70ch; margin: 0 auto 2.5rem; font-size: 1.1rem; }
+h2.sezione { font-size: 1.5rem; margin: 2.5rem 0 1rem; padding-left: .8rem; border-left: 6px solid var(--accent); }
+.contenuto p { max-width: 70ch; margin-bottom: 1rem; }
+
+/* ---------- Footer ---------- */
+footer { text-align: center; margin-top: 4rem; padding-top: 1.8rem; border-top: 1px solid var(--border);
+  color: var(--text-dim); font-family: 'VT323', monospace; font-size: 1.2rem; }
+
+@media (prefers-reduced-motion: reduce) { .card { transition: none; } .card:hover { transform: none; } }
