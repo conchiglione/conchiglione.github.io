@@ -1,6 +1,6 @@
 /* Gestisce lo sfondo scelto e lo ricorda (anche nelle altre pagine che includono questo file). */
 (function () {
-  var TEMI = ["neon", "80s", "confetto", "pesca", "lavanda", "menta", "notte"];
+  var TEMI = ["neon", "80s", "rosanero", "pescanero", "notte", "confetto", "lavanda"];
   var R = document.documentElement, scelto = "neon";
   try { var s = localStorage.getItem("sfondo"); if (TEMI.indexOf(s) > -1) scelto = s; } catch (e) {}
   R.setAttribute("data-sfondo", scelto);
