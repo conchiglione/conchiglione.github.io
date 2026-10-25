@@ -8,9 +8,22 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=VT323&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/sfondo.js"></script>
 </head>
 <body>
   <div class="container">
+    <!-- 🎨 SFONDI: ogni pallino e' un tema definito in assets/style.css (sezione SFONDI). Puoi toglierne o aggiungerne. -->
+    <div class="sfondi" role="group" aria-label="Scegli lo sfondo">
+      <span>Sfondo</span>
+      <button type="button" data-scegli="neon" title="Neon colorato" aria-label="Neon colorato" aria-pressed="false" style="background:linear-gradient(135deg,#0d0a1a 50%,#00f0ff 50%)"></button>
+      <button type="button" data-scegli="80s" title="Anni 80 originale" aria-label="Anni 80 originale" aria-pressed="false" style="background:linear-gradient(135deg,#0d0a1a 50%,#ff007f 50%)"></button>
+      <button type="button" data-scegli="confetto" title="Rosa confetto" aria-label="Rosa confetto" aria-pressed="false" style="background:linear-gradient(180deg,#fff3f8,#ffb8d4)"></button>
+      <button type="button" data-scegli="pesca" title="Pesca" aria-label="Pesca" aria-pressed="false" style="background:linear-gradient(180deg,#fff6ee,#ffbf9e)"></button>
+      <button type="button" data-scegli="lavanda" title="Lavanda" aria-label="Lavanda" aria-pressed="false" style="background:linear-gradient(180deg,#f6f2ff,#c6b3ff)"></button>
+      <button type="button" data-scegli="menta" title="Menta" aria-label="Menta" aria-pressed="false" style="background:linear-gradient(180deg,#effff7,#9fe6c4)"></button>
+      <button type="button" data-scegli="notte" title="Notte blu" aria-label="Notte blu" aria-pressed="false" style="background:linear-gradient(135deg,#07111f 50%,#4da3ff 50%)"></button>
+    </div>
+
     <header>
       <!-- ✏️ MODIFICA TESTO: etichetta sopra il titolo -->
       <div class="badge">[ SYSTEM v1.0 // HOBBY LAB ]</div>
