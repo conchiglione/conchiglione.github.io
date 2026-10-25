@@ -8,9 +8,35 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=VT323&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
-  <script src="assets/sfondo.js"></script>
+  <!-- Script dello sfondo incluso qui, cosi' la home funziona anche da sola -->
+  <script>
+/* Gestisce lo sfondo scelto e lo ricorda (anche nelle altre pagine che includono questo file). */
+(function () {
+  var TEMI = ["neon", "80s", "confetto", "pesca", "lavanda", "menta", "notte"];
+  var R = document.documentElement, scelto = "neon";
+  try { var s = localStorage.getItem("sfondo"); if (TEMI.indexOf(s) > -1) scelto = s; } catch (e) {}
+  R.setAttribute("data-sfondo", scelto);
+
+  function segna(v) {
+    document.querySelectorAll("[data-scegli]").forEach(function (b) {
+      b.setAttribute("aria-pressed", b.getAttribute("data-scegli") === v ? "true" : "false");
+    });
+  }
+  document.addEventListener("DOMContentLoaded", function () {
+    segna(scelto);
+    document.querySelectorAll("[data-scegli]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var v = b.getAttribute("data-scegli");
+        R.setAttribute("data-sfondo", v);
+        try { localStorage.setItem("sfondo", v); } catch (e) {}
+        segna(v);
+      });
+    });
+  });
+})();
+  </script>
 </head>
-<body>
+<body class="con-barra">
   <div class="container">
     <!-- 🎨 SFONDI: ogni pallino e' un tema definito in assets/style.css (sezione SFONDI). Puoi toglierne o aggiungerne. -->
     <div class="sfondi" role="group" aria-label="Scegli lo sfondo">
