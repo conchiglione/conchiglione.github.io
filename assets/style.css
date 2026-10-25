@@ -17,7 +17,7 @@
    Uso: <body class="tema-fotografia"> oppure <a class="card tema-musica">
    Per un nuovo colore cambia i due valori (hex + rgb).            */
 .tema-fotografia { --accent: #ff5fa2; --accent-rgb: 255, 95, 162; }  /* rosa: emozione, creativita' */
-.tema-gallery    { --accent: #ffb703; --accent-rgb: 255, 183, 3; }   /* ambra: calore, esposizione */
+.tema-biciclette { --accent: #ffb703; --accent-rgb: 255, 183, 3; }   /* ambra: energia, movimento, ottimismo */
 .tema-musica     { --accent: #a98bff; --accent-rgb: 169, 139, 255; } /* viola: immaginazione, suono */
 .tema-giapponese { --accent: #ff5a4d; --accent-rgb: 255, 90, 77; }   /* vermiglio: Giappone, energia */
 .tema-camino     { --accent: #5fe08d; --accent-rgb: 95, 224, 141; }  /* verde: natura, cammino */
