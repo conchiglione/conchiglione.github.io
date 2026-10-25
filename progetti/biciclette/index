@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- ✏️ MODIFICA TESTO: titolo della scheda del browser -->
+  <title>Biciclette | Conchiglione</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+
+<!-- 🎨 COLORE: cambia la classe del body (tema-fotografia | tema-biciclette | tema-musica | tema-giapponese | tema-camino | tema-software) -->
+<body class="tema-biciclette">
+  <div class="container">
+
+    <nav class="crumb"><a href="../../index.html">&lt;- Home</a></nav>
+
+    <header>
+      <!-- ✏️ MODIFICA TESTO: etichetta, titolo e sottotitolo -->
+      <div class="badge">&gt; BIKES</div>
+      <h1>Biciclette</h1>
+      <p class="subtitle">Le mie bici, le uscite, gli itinerari e la manutenzione.</p>
+    </header>
+
+    <main>
+      <!-- ✏️ MODIFICA TESTO: introduzione -->
+      <p class="intro">Due ruote, tanta strada: qui trovi le bici che ho, i giri che mi sono piaciuti e quello che ho imparato in officina.</p>
+
+      <h2 class="sezione">Argomenti</h2>
+      <!-- ✏️ MODIFICA TESTO e LINK: cambia titolo, descrizione e href="#" di ogni card. Duplica o elimina i blocchi a piacere. -->
+      <div class="grid">
+        <a href="#" class="card">
+          <div>
+            <div class="card-tag">&gt; GARAGE</div>
+            <h2>Le mie bici</h2>
+            <p>Modello, componenti e la storia di ognuna.</p>
+          </div>
+          <span class="card-link">Apri -&gt;</span>
+        </a>
+        <a href="#" class="card">
+          <div>
+            <div class="card-tag">&gt; USCITE</div>
+            <h2>Uscite e itinerari</h2>
+            <p>Percorsi, distanze, dislivelli e tracce da scaricare.</p>
+          </div>
+          <span class="card-link">Apri -&gt;</span>
+        </a>
+        <a href="#" class="card">
+          <div>
+            <div class="card-tag">&gt; OFFICINA</div>
+            <h2>Manutenzione e componenti</h2>
+            <p>Riparazioni, upgrade e piccoli trucchi.</p>
+          </div>
+          <span class="card-link">Apri -&gt;</span>
+        </a>
+      </div>
+
+      <h2 class="sezione">Approfondimento</h2>
+      <!-- ✏️ MODIFICA TESTO: testo libero -->
+      <div class="contenuto">
+        <p>Testo provvisorio: racconta che tipo di ciclista sei, le tue bici preferite e i percorsi che consiglieresti.</p>
+        <p>Aggiungi altri paragrafi duplicando questo blocco.</p>
+      </div>
+    </main>
+
+    <footer>
+      <!-- ✏️ MODIFICA TESTO: footer -->
+      &copy; 2026 Con(ch)iglione • Hosted on GitHub Pages
+    </footer>
+  </div>
+</body>
+</html>
